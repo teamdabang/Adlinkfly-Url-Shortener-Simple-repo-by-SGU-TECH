@@ -24,10 +24,10 @@ bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
   const username = msg.from.username;
   const welcomeMessage = `😇 Hello, ${username}!\n\n`
-    + 'Welcome to the Indishort URL Shortener Bot!\n'
-    + 'You can use this bot to shorten URLs using the Indishort.live api service.\n\n'
+    + 'Welcome to the Shortner URL Shortener Bot!\n'
+    + 'You can use this bot to shorten URLs using the shortner api service.\n\n'
     + 'To shorten a URL, just type or paste the URL directly in the chat, and the bot will provide you with the shortened URL.\n\n'
-    + 'If you haven\'t set your Indishort API token yet, use the command:\n/setapi YOUR_Indishort_API_TOKEN\n\n'
+    + 'If you haven\'t set your shortner API token yet, use the command:\n/setapi YOUR_Indishort_API_TOKEN\n\n'
     + 'How To Use Me 👇👇 \n\n'
   + '✅1. Got To https://shortner.in/ref/MyNameIs & Complete Your Registration.\n\n'
   + '✅2. Then Copy Your API Key from here https://shortner.in/member/tools/api Copy Your API Only. \n\n'
@@ -122,12 +122,12 @@ async function shortenUrl(chatId, url) {
   const adlinkflyToken = getUserToken(chatId);
 
   if (!adlinkflyToken) {
-    bot.sendMessage(chatId, 'Please set up 🎃 your INDISHORT API token first. 🔮 Use the command: /setapi YOUR_INDISHORT_API_TOKEN');
+    bot.sendMessage(chatId, 'Please set up 🎃 your shortner API token first. 🔮 Use the command: /setapi YOUR_Shortner_API_TOKEN');
     return null;
   }
 
   try {
-    const apiUrl = `https://indishort.live/api?api=${adlinkflyToken}&url=${encodeURIComponent(url)}`;
+    const apiUrl = `https://shortner.in/api?api=${adlinkflyToken}&url=${encodeURIComponent(url)}`;
     const response = await axios.get(apiUrl);
     return response.data.shortenedUrl;
   } catch (error) {
